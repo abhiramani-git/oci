@@ -36,7 +36,7 @@ jobs:
         run: |
           oci setup repair-file-permissions --file /home/runner/.oci/config
           oci setup repair-file-permissions --file /home/runner/.oci/key.pem
-          
+
       - name: install terraform
         uses: hashicorp/setup-terraform@v3
 
@@ -57,5 +57,5 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-      # - name: Terraform Apply
-      #   run: terraform apply -auto-approve
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
